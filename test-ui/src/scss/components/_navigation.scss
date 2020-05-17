@@ -1,0 +1,12 @@
+.navigation {
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: space-between;
+
+  &__link {
+
+    a {
+      color: var(--white);
+    }
+  }
+}

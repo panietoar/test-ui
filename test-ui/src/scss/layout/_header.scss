@@ -1,0 +1,16 @@
+.header {
+  align-items: center;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 15rem;
+
+  &__logo {
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  &__nav {
+    flex-basis: 35%;
+  }
+}

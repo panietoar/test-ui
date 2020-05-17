@@ -1,0 +1,26 @@
+.info-box {
+  align-items: center;
+  background-color: var(--light-gray);
+  padding: 2.4rem;
+  display: flex;
+  margin-bottom: 4rem;
+
+  &__heading {
+    flex-basis: 35%;
+  }
+  
+  &__title {
+    font-size: 2.4rem;
+    font-weight: 100;
+    
+    &--bold {
+      font-size: 3.9rem;
+      font-weight: 700;
+    }
+  }
+
+  &__copy {
+    font-size: 1.8rem;
+    margin-left: 1rem;
+  }
+}

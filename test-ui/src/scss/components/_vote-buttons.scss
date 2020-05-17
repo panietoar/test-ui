@@ -1,0 +1,22 @@
+.vote-button {
+  @include flexCentered;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.8rem;
+
+  &--up {
+    background-color: var(--vote-up);
+  }
+
+  &--down {
+    background-color: var(--vote-down);
+  }
+
+  &--transparent {
+    opacity: .8;
+
+    .material-icons {
+      opacity: 1;
+    }
+  }
+}

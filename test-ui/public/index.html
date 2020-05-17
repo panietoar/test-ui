@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        Rule of Thumb.
+      </div>
+      <nav class="header__nav">
+        <ul class="navigation">
+          <li class="navigation__link"><a href="">Past Trials</a></li>
+          <li class="navigation__link"><a href="">How It Works</a></li>
+          <li class="navigation__link"><a href="">Log In/Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero__wrapper">
+        <div class="hero__feature">
+          <article class="feature">
+            <h4 class="feature__subtitle">What's your opinion on</h4>
+            <h1 class="feature__title">Pope Francis?</h1>
+            <p class="feature__copy">
+              He's talking tough on clergy sexual abuse, but is he just another
+              papal pervert protector? (thumbs down) or a true pedophile
+              punishing pontiff? (thumbs up)
+            </p>
+            <div class="feature__link">
+              <i class="wikipedia"></i>
+              <a href="https://en.wikipedia.org/wiki/Pope_Francis">
+                More information
+              </a>
+            </div>
+            <p class="feature__footing">What's Your Verdict?</p>
+          </article>
+          <div class="hero__votes">
+            <div class="vote-button vote-button--up vote-button--transparent">
+              <span class="material-icons">
+                thumb_up
+              </span>
+            </div>
+            <div class="vote-button vote-button--down vote-button--transparent">
+              <span class="material-icons">
+                thumb_down
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="hero__time">
+        <div class="hero__time-text">closing in</div>
+        <div class="hero__time-days">
+          <span class="hero__days-number">22</span> days
+        </div>
+      </footer>
+    </section>
+    <main class="content">
+      <div class="info-box">
+        <div class="info-box__heading">
+          <h2 class="info-box__title">
+            Speak out. Be heard. <span class="info-box__title--bold"
+              >Be counted</span
+            >
+          </h2>
+        </div>
+        <div class="info-box__copy">
+          Rule of Thumb is a crowd sourced court of public opinion where anyone
+          and everyone can speak out and speak freely. It's easy: you share your
+          opinion, we analyze and put the data in a public report.
+        </div>
+      </div>
+      <section class="votes-container">
+        <h2 class="votes__title">Votes</h2>
+        <div id="votes"></div>
+      </section>
+    </main>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

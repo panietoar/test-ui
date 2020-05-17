@@ -1,0 +1,16 @@
+@mixin respond($device) {
+  @if $device == phone {
+    @media only screen and (max-width: 37.5em) { @content };
+  }
+
+  @if $device == tablet {
+    @media only screen and (max-width: 56.25em) { @content };
+  }
+
+}
+
+@mixin flexCentered {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
