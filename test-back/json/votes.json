@@ -1,0 +1,44 @@
+{
+  "votes": [
+    {
+      "id": 1,
+      "name": "Kanye West",
+      "image": "https://i.pinimg.com/originals/8c/e8/3f/8ce83fcd3a07b0de0eb5deea70ccb084.jpg",
+      "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero",
+      "category": "Entertainment",
+      "days": 68,
+      "upvotes": 2,
+      "downvotes": 1
+    },
+    {
+      "id": 2,
+      "name": "Mark Zuckerberg",
+      "image": "https://cnet1.cbsistatic.com/img/fCYwLH51SMEgSU8FeBbZMBY4XYk=/940x0/2014/03/21/863df5d9-e8b8-4b38-851b-5e3f77f2cf0e/mark-zuckerberg-facebook-home-10671610x407.jpg",
+      "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero",
+      "category": "Business",
+      "days": 36,
+      "upvotes": 1,
+      "downvotes": 2
+    },
+    {
+      "id": 3,
+      "name": "Cristina Fernández de Kirchner",
+      "image": "https://elpolitico.com/wp-content/uploads/2016/08/cristina-k.jpg",
+      "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero",
+      "category": "Politics",
+      "days": 36,
+      "upvotes": 1,
+      "downvotes": 2
+    },
+    {
+      "id": 4,
+      "name": "Malala Yousafzai",
+      "image": "https://biodata-profil.com/wp-content/uploads/2018/05/Malala-Yousafzai.jpg",
+      "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero",
+      "category": "Entertainment",
+      "days": 32,
+      "upvotes": 2,
+      "downvotes": 1
+    }
+  ]
+}

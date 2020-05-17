@@ -21,7 +21,14 @@
     width: 85%;
   }
 
+  &__icon {
+    fill: var(--white);
+    margin-right: 0.5rem;
+  }
+
   &__link {
+    align-items: center;
+    display: flex;
     font-size: 1.4rem;
     margin-bottom: 4rem;
 

@@ -13,6 +13,11 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 100;
+
+  @media only screen and (min-width: 1440px) {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 }
 
 a,

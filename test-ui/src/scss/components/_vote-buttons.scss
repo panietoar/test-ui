@@ -14,9 +14,26 @@
 
   &--transparent {
     opacity: .8;
+  }
 
-    .material-icons {
-      opacity: 1;
-    }
+  &--selected {
+    border: 2px solid var(--white);
+  }
+}
+
+.vote-cta {
+  border: 1px solid var(--white);
+  border-radius: 0;
+  background-color: rgba(#000, 0);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 100;
+  font-size: 1.6rem;
+  padding: 1.4rem 2.4rem;
+  transition: all .2s;
+
+  &:hover {
+    background-color: var(--white);
+    color: #000;
   }
 }
