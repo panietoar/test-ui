@@ -18,8 +18,9 @@
         <span class="vote__date--bold">
           {{ elapsedTime }}
         </span> in {{ vote.category }}</p>
-      <p class="vote__description">{{ vote.description }}</p>
-      <div class="vote__vote-buttons">
+      <p class="vote__description" v-if="!voted">{{ vote.description }}</p>
+      <p class="vote__description" v-else>Thank you for voting!</p>
+      <div class="vote__vote-buttons" v-if="!voted">
         <div
           class="vote-button vote-button--up"
           :class="{'vote-button--selected': upvoted}"
@@ -36,8 +37,11 @@
             <use xlink:href="#thumbs_down" />
           </svg>
         </div>
-        <button class="vote-cta">Vote now</button>
+        <button class="vote-cta" @click="sendVote()">Vote now</button>
       </div>
+       <div class="vote__vote-buttons" v-else>
+          <button class="vote-cta" @click="voted=false">Vote again</button>
+       </div>
     </div>
     <div class="vote__vote-bar">
       <div
@@ -76,7 +80,8 @@ export default {
   data () {
     return {
       upvoted: false,
-      downvoted: false
+      downvoted: false,
+      voted: false
     }
   },
   computed: {
@@ -119,6 +124,15 @@ export default {
     downvote () {
       this.upvoted = false
       this.downvoted = true
+    },
+    sendVote () {
+      if (!(this.upvoted || this.downvoted)) {
+        return
+      }
+
+      this.$store.dispatch(this.upvoted ? 'upvote' : 'downvote', this.vote.id)
+
+      this.voted = true
     }
   }
 }
