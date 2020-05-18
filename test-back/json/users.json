@@ -3,20 +3,19 @@
     {
       "id": 1,
       "name": "panietoar",
-      "hash": "4cc7d77cad45b1cdfa1cfac2637d9c1a",
-      "age": 26,
-      "civilStatus": "separated",
+      "hash": "355756cb4f7c7f86497764e3ba007664",
+      "age": 35,
+      "civilStatus": "married",
       "votes": [
-        { "voteId": 1, "votes": 1 },
-        { "voteId": 3, "votes": 3 }
+        {
+          "voteId": 2,
+          "votes": 1
+        },
+        {
+          "voteId": 2,
+          "votes": 2
+        }
       ]
-    },
-    {
-      "name": "pablo",
-      "hash": "ee0d3e44277f227dbef9fbbf363c7fad",
-      "age": "30",
-      "civilStatus": "separated",
-      "id": 2
     }
   ]
 }

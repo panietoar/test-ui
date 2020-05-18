@@ -16,6 +16,7 @@ router.post('/login', (req, res) => {
       authenticated = true
       userData = {
         name: user.name,
+        id: user.id,
         votes: user.votes
       }
     }
@@ -65,8 +66,9 @@ router.get('/:userId', (req, res) => {
 router.post('/', (req, res) => {
   let created = false
   let error = ''
+  let newUser;
   try {
-    userRepository.createUser(req.body)
+    newUser = userRepository.createUser(req.body)
     created = true
   } catch (errorMessage) {
     if (errorMessage === codes.USER_ALREADY_EXISTS) {
@@ -79,7 +81,8 @@ router.post('/', (req, res) => {
 
   res.json({
     error,
-    created
+    created,
+    newUser
   })
 })
 
@@ -123,6 +126,29 @@ router.delete('/:userId', (req, res) => {
   res.json({
     error,
     deleted
+  })
+})
+
+router.post('/:userId/vote/:voteId/', (req, res) => {
+  let userVote;
+  let error = ''
+  try {
+    const userId = parseInt(req.params.userId)
+    const voteId = parseInt(req.params.voteId)
+    userVote = userRepository.castVote(userId, voteId)
+  } catch (errorMessage) {
+    if (errorMessage === codes.USER_NOT_FOUND) {
+      res.status(404)
+    } else {
+      res.status(500)
+    }
+    console.log(errorMessage)
+    error = errorMessage
+  }
+  
+  res.json({
+    error,
+    userVote
   })
 })
 

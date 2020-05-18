@@ -1,5 +1,6 @@
 const fs = require('fs')
 const codes = require('../routes/codes')
+
 class VoteRepository {
 
   constructor() {
@@ -21,11 +22,13 @@ class VoteRepository {
   upvote(voteId) {
     try {
       const votes = fs.readFileSync(this.FILE_PATH);
-      if (data) {
-        voteData = JSON.parse(data)
+      let voteData;
+      if (votes) {
+        voteData = JSON.parse(votes)
       }
 
       let vote = voteData.votes.find(v => v.id === voteId)
+      console.log(vote)
 
       if(!vote) {
         throw codes.VOTE_NOT_FOUND
@@ -39,6 +42,35 @@ class VoteRepository {
       return vote
 
     } catch (error) {
+      console.log(error)
+      throw error
+    }
+  }
+
+  downvote(voteId) {
+    try {
+      const votes = fs.readFileSync(this.FILE_PATH);
+      let voteData;
+      if (votes) {
+        voteData = JSON.parse(votes)
+      }
+
+      let vote = voteData.votes.find(v => v.id === voteId)
+      console.log(vote)
+
+      if(!vote) {
+        throw codes.VOTE_NOT_FOUND
+      }
+
+      vote.downvotes++
+
+      const votesJson = JSON.stringify(voteData)
+      fs.writeFileSync(this.FILE_PATH, votesJson)
+
+      return vote
+
+    } catch (error) {
+      console.log(error)
       throw error
     }
   }

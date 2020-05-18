@@ -28,6 +28,32 @@ class UserRepository {
     return user
   }
 
+  castVote(userId, voteId) {
+    let users = JSON.parse(fs.readFileSync(this.FILE_PATH))
+    const user = users.users.find(u => u.id === userId)
+    let userVote;
+    if (user) {
+      let userVote = user.votes.find(v => v.voteId === voteId)
+
+      if (userVote) {
+        userVote.votes++
+      } else {
+        userVote = {
+          voteId,
+          votes: 1
+        }
+        user.votes.push(userVote)
+      }
+      const usersJson = JSON.stringify(users)
+      fs.writeFileSync(this.FILE_PATH, usersJson)
+      return userVote
+
+    } else {
+      throw codes.USER_NOT_FOUND
+    }
+    
+  }
+
   createUser(userData) {
     let users = JSON.parse(fs.readFileSync(this.FILE_PATH))
     const user = users.users.find(u => u.name === userData.name)
@@ -38,10 +64,12 @@ class UserRepository {
 
     const index = users.users.slice(-1)[0].id
     userData.id = index + 1
+    userData.votes = []
 
     users.users.push(userData)
     const usersJson = JSON.stringify(users)
     fs.writeFileSync(this.FILE_PATH, usersJson)
+    return userData
   }
 
   updateUser(userData) {

@@ -142,7 +142,7 @@ export default {
       }
 
       this.$store.dispatch(this.upvoted ? 'upvote' : 'downvote', this.vote.id)
-
+      this.$store.dispatch('castUserVote', this.vote.id)
       this.voted = true
     }
   }

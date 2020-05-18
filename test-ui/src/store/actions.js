@@ -9,12 +9,37 @@ export default {
     commit('SET_VOTES', votesData.votes)
   },
 
-  upvote ({ commit }, voteId) {
-    commit('UPVOTE', voteId)
+  upvote ({ dispatch }, voteId) {
+    const url = `${API_URL}/votes/${voteId}/upvote`
+    dispatch('sendVote', url)
   },
 
-  downvote ({ commit }, voteId) {
-    commit('DOWNVOTE', voteId)
+  downvote ({ dispatch }, voteId) {
+    const url = `${API_URL}/votes/${voteId}/downvote`
+    dispatch('sendVote', url)
+  },
+
+  sendVote ({ commit }, url) {
+    fetch(url, {
+      method: 'POST'
+    }).catch(error => console.error(error))
+      .then(response => response.json())
+      .then(response => {
+        const vote = response.vote
+        commit('UPDATE_VOTE', vote)
+      })
+  },
+
+  castUserVote ({ commit, state }, voteId) {
+    const userId = state.user.id
+    fetch(`${API_URL}/users/${userId}/vote/${voteId}`, {
+      method: 'POST'
+    }).catch(error => console.error(error))
+      .then(response => response.json())
+      .then(response => {
+        const userVote = response.userVote
+        commit('UPDATE_USER_VOTE', userVote)
+      })
   },
 
   login ({ commit }, userData) {
@@ -56,7 +81,7 @@ export default {
       alert(error.error)
     }).then(response => response.json()).then(response => {
       if (response.created) {
-        commit('REGISTER', userData)
+        commit('REGISTER', response.newUser)
       }
     })
   },
