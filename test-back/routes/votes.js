@@ -9,4 +9,15 @@ router.get('/', (req, res) => {
   res.json(voteData)
 })
 
+router.post('/:voteId/upvote', (req, res) => {
+  let error = ''
+  const voteId = parseInt(req.params.voteId)
+
+  try {
+    
+  } catch (errorMessage) {
+
+  }
+})
+
 module.exports = router

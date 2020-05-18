@@ -19,11 +19,12 @@
           {{ elapsedTime }}
         </span> in {{ vote.category }}</p>
       <p class="vote__description" v-if="!voted">{{ vote.description }}</p>
-      <p class="vote__description" v-else>Thank you for voting!</p>
-      <div class="vote__vote-buttons" v-if="!voted">
+      <p class="vote__description" v-if="voted || maxVotes">Thank you for voting!</p>
+      <div class="vote__vote-buttons" v-if="!voted && !maxVotes">
         <div
           class="vote-button vote-button--up"
           :class="{'vote-button--selected': upvoted}"
+          v-if="loggedIn"
           @click="upvote()">
           <svg width="45" height="45">
             <use xlink:href="#thumbs_up" />
@@ -32,14 +33,15 @@
         <div
           class="vote-button vote-button--down"
           :class="{'vote-button--selected': downvoted}"
+          v-if="loggedIn"
           @click="downvote()">
           <svg width="24" height="24">
             <use xlink:href="#thumbs_down" />
           </svg>
         </div>
-        <button class="vote-cta" @click="sendVote()">Vote now</button>
+        <button v-if="loggedIn" class="vote-cta" @click="sendVote()">Vote now</button>
       </div>
-       <div class="vote__vote-buttons" v-else>
+       <div class="vote__vote-buttons" v-if="voted && !maxVotes">
           <button class="vote-cta" @click="voted=false">Vote again</button>
        </div>
     </div>
@@ -109,6 +111,15 @@ export default {
       } else {
         return `${this.vote.days} days ago `
       }
+    },
+    userVotes () {
+      return this.$store.getters.userVotesById(this.vote.id)
+    },
+    maxVotes () {
+      return this.userVotes >= 3
+    },
+    loggedIn () {
+      return this.$store.state.user.loggedIn
     }
   },
   methods: {

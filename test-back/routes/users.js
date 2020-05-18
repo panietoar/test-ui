@@ -9,10 +9,15 @@ router.post('/login', (req, res) => {
   const {username, hash} = req.body
   let authenticated = false
   let error = ''
+  let userData = {}
   try {
     const user = userRepository.loginUser(username, hash)
     if (user) {
       authenticated = true
+      userData = {
+        name: user.name,
+        votes: user.votes
+      }
     }
   } catch (errorMessage) {
     if (errorMessage === codes.INCORRECT_PASSWORD) {
@@ -28,7 +33,8 @@ router.post('/login', (req, res) => {
 
   res.json({
     error,
-    authenticated
+    authenticated,
+    user: userData
   })
 })
 

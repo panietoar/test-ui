@@ -14,8 +14,14 @@ export default {
     vote.downvotes++
   },
 
-  LOGIN (state, username) {
-    state.user.name = username
+  LOGIN (state, user) {
+    state.user.name = user.name
+    state.user.votes = user.votes
+    state.user.loggedIn = true
+  },
+
+  REGISTER (state, user) {
+    state.user.name = user.name
     state.user.loggedIn = true
   },
 

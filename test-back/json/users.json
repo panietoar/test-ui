@@ -7,9 +7,16 @@
       "age": 26,
       "civilStatus": "separated",
       "votes": [
-        { "voteId": 2, "votes": 1 },
-        { "voteId": 2, "votes": 2 }
+        { "voteId": 1, "votes": 1 },
+        { "voteId": 3, "votes": 3 }
       ]
+    },
+    {
+      "name": "pablo",
+      "hash": "ee0d3e44277f227dbef9fbbf363c7fad",
+      "age": "30",
+      "civilStatus": "separated",
+      "id": 2
     }
   ]
 }

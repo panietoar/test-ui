@@ -12,7 +12,8 @@ export default new Vuex.Store({
     votes: {},
     user: {
       name: 'Anonymous',
-      loggedIn: false
+      loggedIn: false,
+      votes: []
     },
     modalVisible: false
   },
