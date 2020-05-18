@@ -8,6 +8,10 @@
     display: flex;
     justify-content: space-between;
     padding-top: 3rem;
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
   }
 
   &__nav {
@@ -21,6 +25,11 @@
         font-weight: 400;
       }
     }
+
+    @include respond(tablet) {
+      flex-basis: 50%;
+    }
+
   }
 
   &__social {
@@ -29,6 +38,19 @@
     display: flex;
     font-size: 1.3rem;
     justify-content: space-between;
+
+    @include respond(phone) {
+      flex-basis: 7.5rem;
+      width: 60%;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 1em;
+  }
+
+  @include respond(tablet) {
+    padding: 3em;
   }
 
 }

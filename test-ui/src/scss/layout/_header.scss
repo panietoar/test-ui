@@ -4,13 +4,63 @@
   display: flex;
   justify-content: space-between;
   padding: 5rem 15rem;
+  position: relative;
 
   &__logo {
     font-size: 4rem;
     font-weight: 400;
+
+    @include respond(phone) {
+      font-size: 3rem;
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  &__toggle-menu {
+    position: absolute;
+    top: 1.5rem;
+    right: 0.5rem;
+    display: none;
+
+    @include respond(phone) {
+      display: block;
+    }
   }
 
   &__nav {
     flex-basis: 40%;
+
+    @include respond(phone) {
+      flex-basis: 100%;
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s;
+
+      &--open {
+        max-height: 100rem;
+      }
+
+      a {
+        font-size: 1.4rem;
+      }
+    }
+
+    @include respond(tablet) {
+      flex-basis: 50%;
+
+      a {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  @include respond(tablet) {
+    padding: 3rem;
   }
 }

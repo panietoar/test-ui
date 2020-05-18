@@ -48,7 +48,7 @@
     <div class="vote__vote-bar">
       <div
         class="vote-bar vote-bar--up"
-        :style="`flexBasis: ${positivePercent}%;`">
+        :style="`width: ${positivePercent}%;`">
         <svg width="45" height="45">
           <use xlink:href="#thumbs_up" />
         </svg>
@@ -58,7 +58,7 @@
       </div>
       <div
         class="vote-bar vote-bar--down"
-        :style="`flexBasis: ${negativePercent}%;`">
+        :style="`width: ${negativePercent}%;`">
         <p class="vote-bar__percentage">
           {{ negativePercent }}%
         </p>
@@ -203,6 +203,10 @@ export default {
       height: 2.2rem;
       width: 2.2rem;
     }
+
+    @media only screen and (max-width: 37.5em) {
+      width: 100%;
+    }
   }
 
   &__vote-bar {
@@ -228,11 +232,23 @@ export default {
       &--down {
         background-color: var(--vote-down);
         justify-content: flex-end;
+
+        @media only screen and (max-width: 37.5em) {
+          align-self: flex-end;
+        }
       }
 
       &__percentage {
         margin: 0 1rem;
+
+        @media only screen and (max-width: 37.5em) {
+          font-size: 2rem;
+        }
       }
+    }
+
+    @media only screen and (max-width: 37.5em) {
+      flex-direction: column;
     }
 
   }

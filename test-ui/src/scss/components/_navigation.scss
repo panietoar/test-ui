@@ -9,5 +9,12 @@
     a {
       color: var(--white);
     }
+    @include respond(phone) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
   }
 }

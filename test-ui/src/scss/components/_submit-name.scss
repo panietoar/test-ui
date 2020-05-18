@@ -7,6 +7,15 @@
 
   &__text {
     font-size: 3.6rem;
+
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
+
+    
+    @include respond(tablet) {
+      font-size: 2.6rem;
+    }
   }
 
   &__cta {
@@ -22,6 +31,15 @@
       background-color: #000;
       color: var(--white);
     }
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
+
+    @include respond(tablet) {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+    }
   }
 
   &::after {
@@ -34,5 +52,9 @@
     top: 0;
     width: 100%;
     z-index: -1;
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
   }
 }

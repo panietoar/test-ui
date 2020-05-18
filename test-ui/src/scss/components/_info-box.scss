@@ -6,7 +6,11 @@
   margin-bottom: 4rem;
 
   &__heading {
-    flex-basis: 35%;
+    flex-basis: 20%;
+  
+    @include respond(tablet) {
+      flex-basis: 33%;
+    }
   }
   
   &__title {
@@ -16,11 +20,41 @@
     &--bold {
       font-size: 3.9rem;
       font-weight: 700;
+
+      @include respond(phone) {
+        font-size: 3.9rem;
+      }
+    }
+
+    @include respond(phone) {
+     width: 80%;
+     margin-bottom: 2rem;
     }
   }
 
   &__copy {
     font-size: 1.8rem;
     margin-left: 1rem;
+    flex-basis: 66%;
+
+    @include respond(phone) {
+      margin-left: 0;
+    }
+
+    @include respond(tablet) {
+      flex-basis: 75%;
+    }
   }
+
+  @include respond(phone) {
+    flex-direction: column;
+    width: 28rem;
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+
+  @include respond(tablet) {
+    padding: 1.4rem;
+  }
+
 }

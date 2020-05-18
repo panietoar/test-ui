@@ -28,5 +28,15 @@ export default {
   display: grid;
   gap: 4rem;
   grid-template-columns: 1fr 1fr;
+
+  @media only screen and (max-width: 37.5em) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  };
+
+  @media only screen and (max-width: 56.25em) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  };
 }
 </style>

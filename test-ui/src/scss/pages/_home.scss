@@ -19,6 +19,9 @@
 
   &__feature {
     margin-left: 15rem;
+    @include respond(phone) {
+      margin-left: 0;
+    }
   }
     
   &__votes {
@@ -29,16 +32,21 @@
       padding: 2rem;
       width: 50%;
     }
+
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 
   &__time {
     align-items: center;
     display: flex;
     width: 100%;
+
   }
 
   &__time-text {
-    background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
     color: var(--white);
     clip-path: polygon(0 0, 98% 0, 98% 40%, 100% 50%, 98% 60%, 98% 100%, 0 100%);
     flex-basis: 30%;
@@ -55,16 +63,32 @@
     font-size: 4rem;
     padding: .6rem;
     flex: 1;
+
   }
 
   &__days-number {
     font-weight: 400;
     margin-left: 1rem;
   }
+
+  @include respond(phone) {
+    background-position: center center;
+    height: auto;
+    margin-top: -26rem;
+    padding-top: 26rem;
+  }
 }
 
 .content {
   padding: 0 15rem;
+
+  @include respond(phone) {
+    padding: 1rem;
+  }
+
+  @include respond(tablet) {
+    padding: 3rem;
+  }
 }
 
 .votes-container {
