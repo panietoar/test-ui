@@ -10,17 +10,6 @@
         { "voteId": 2, "votes": 1 },
         { "voteId": 2, "votes": 2 }
       ]
-    },
-    {
-      "id": 2,
-      "name": "panietoar",
-      "hash": "4cc7d77cad45b1cdfa1cfac2637d9c1a",
-      "age": 26,
-      "civilStatus": "separated",
-      "votes": [
-        { "voteId": 2, "votes": 1 },
-        { "voteId": 2, "votes": 2 }
-      ]
     }
   ]
 }

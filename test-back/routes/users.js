@@ -32,6 +32,30 @@ router.post('/login', (req, res) => {
   })
 })
 
+router.get('/:userId', (req, res) => {
+  let error = ''
+  const userId = parseInt(req.params.userId)
+  let userData = null
+  try {
+    userData = userRepository.getUserVotes(userId)
+  } catch (errorMessage) {
+    if (errorMessage === codes.USER_NOT_FOUND) {
+      res.status(404)
+    } else {
+      res.status(500)
+    }
+    error = errorMessage
+  }
+
+  if (error) {
+    res.json({
+      error
+    })
+  } else {
+    res.json(userData)
+  }
+})
+
 router.post('/', (req, res) => {
   let created = false
   let error = ''

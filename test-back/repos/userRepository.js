@@ -63,7 +63,6 @@ class UserRepository {
   deleteUser(userId) {
     let users = JSON.parse(fs.readFileSync(this.FILE_PATH))
     const index = users.users.findIndex(u => u.id === userId)
-    console.log(index)
     if(index === -1) {
       throw codes.USER_NOT_FOUND
     }
@@ -71,6 +70,19 @@ class UserRepository {
 
     const usersJson = JSON.stringify(users)
     fs.writeFileSync(this.FILE_PATH, usersJson)
+  }
+
+  getUserVotes(userId) {
+    let users = JSON.parse(fs.readFileSync(this.FILE_PATH))
+    const user = users.users.find(u => u.id === userId)
+    if(!user) {
+      throw codes.USER_NOT_FOUND
+    }
+
+    return {
+      name: user.name,
+      votes: user.votes
+    }
   }
 
 }
