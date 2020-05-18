@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './Votes.vue'
+import Login from './Login.vue'
 import store from './store'
 
 import './scss/main.scss'
@@ -10,3 +11,8 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#votes')
+
+new Vue({
+  store,
+  render: h => h(Login)
+}).$mount('#login')

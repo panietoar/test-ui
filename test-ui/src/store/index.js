@@ -9,7 +9,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    votes: {}
+    votes: {},
+    user: {
+      name: 'Anonymous',
+      loggedIn: false
+    },
+    modalVisible: false
   },
   getters,
   mutations,

@@ -1,0 +1,50 @@
+.form {
+  font-size: 1.8rem;
+
+  &__ctas {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  &__button {
+    border: 3px solid #000;
+    background-color: rgba(#000, 0);
+    border-radius: 0;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+
+    &:hover {
+      background-color: #000;
+      color: var(--white);
+    }
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    color: var(--grey-font);
+  }
+
+  &__input {
+    font-size: 2rem;
+    padding: 0.5rem;
+
+    &:invalid {
+      border: 1px solid red;
+    }
+
+    &:invalid:required {
+      background-color: rgb(255, 176, 176);
+    }
+  }
+  
+  &:not(:last-of-type) {
+    margin-bottom: 2.6rem;
+  }
+}

@@ -13,5 +13,17 @@ export default {
 
   downvote ({ commit }, voteId) {
     commit('DOWNVOTE', voteId)
+  },
+
+  login ({ commit }, userData) {
+    commit('LOGIN', userData.username)
+  },
+
+  register ({ commit }, userData) {
+    commit('REGISTER', userData)
+  },
+
+  logout ({ commit }) {
+    commit('LOGOUT')
   }
 }
